@@ -1,0 +1,19 @@
+<br/><br/>
+<h1 style="text-align: center;"><b>Rooms<b></h1>
+
+<%= form_tag(rooms_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Rooms" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<br/><br/><br/>
+<% if @rooms.blank? %>
+  <h4>There are no rooms containing the term <%= params[:search] %>.</h4>
+<% end %>
+<% @rooms.each  do |room| %>
+	<div class="img" style="text-align: center ">  
+	<%= link_to room do %>
+	<div class="desc" style="text-align: center"><b><%=room.name%></b></div><br/><br/>
+    <%= image_tag(room.image_url.to_s ,:style=>" width:300px ;height:300px;") %><br/><br/>
+    <%end%>
+  <% end %>

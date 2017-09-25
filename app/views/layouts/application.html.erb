@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotelbooking</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<ul class="navbarul">
+  <li class="navbar"><%= link_to "HOME", '/home' %></li>
+  <li class="navbar"><%= link_to "ROOM", '/rooms' %></li>
+  <li class="navbar"><%= link_to "Booking", '/booking' %></li>
+  <% if current_user %>
+  <!--Signed in as <%= current_user.name %>-->
+  <%= link_to 'View Profile', current_user %>
+<% else %>
+  <%= link_to 'LOGIN', '/login' %>
+  <%end%>
+  </li>
+  <li class="navbar">
+  	<% if current_user %>
+  	<%= link_to "LOGOUT", '/logout' %>
+  	<%else%>
+  <%= link_to 'SIGNUP', '/signup' %>
+  <%end%>
+  </li>
+</ul>
+
+<%= yield %>
+ <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+<br/><br/>
+ <h1 style="text-align: center;"><b><%=@room.name%><b></h1>
+
+ <%= image_tag(@room.image_url.to_s, :alt => "Room1Image" ,:style=>" width:100%;height:500px;") %>
+ 
+
+
+ <h3><b>Description<b></h3>
+ <p><%=@room.description%></p>
+
+
+ <h3><b>Price<b></h3>
+ <p>The price of this room is <%=@room.price%>/night</p>

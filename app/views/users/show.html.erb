@@ -1,0 +1,14 @@
+<h1><b>My Information</b></h1>
+
+
+  <b>Name:</b><br/>
+  <%= @user.name %><br/><br/>
+
+
+  <b>Phone Number:</b><br/>
+  <%= @user.phonenumber %><br/><br/>
+
+
+  <b>Picture</b><br/>
+  <%= image_tag @user.image_url.to_s ,:style=>' width:300px;height:300px;' %>
+<%= link_to "Edit Profile", edit_user_path %> 

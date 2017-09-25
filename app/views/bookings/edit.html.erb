@@ -1,0 +1,20 @@
+<h1 style="text-align: center"> <b>EDIT BOOKING</b></h1>
+<%= form_for [current_user,@booking]  do |f| %>
+
+	<%= f.label :checkin %> <%= f.date_select(:checkin, :order => [:month, :day, :year]) %><br/><br/>
+
+	<%= f.label :checkout %> <%= f.date_select(:checkout, :order => [:month, :day, :year]) %>	<br/><br/>
+
+	
+	<%=f.label :persons %> <br/>
+	<%= f.select :persons, ['1', '2','3','4','5','6','7','8','9']%><br/><br/>
+	
+	
+	<%=f.label :roomtype_id %> <br/>
+	<%= f.select :room_id, Room.all.collect {|x| [x.name,x.id]} %><br/><br/>
+	<br><br>
+
+
+	<%=f.submit  %>
+		
+	<% end %>

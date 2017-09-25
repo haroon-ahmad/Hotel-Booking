@@ -1,0 +1,9 @@
+<h1>Confirm Room</h1>
+
+<p>CheckinDate:<%=@booking.checkin%></p>
+<p>CheckOutDate:<%=@booking.checkout%></p>
+<p>Persons:<%=@booking.persons%></p>
+<p>Type of Rooms:<%=@room.name%></p>
+<p>Bill:<%=@room.price %>
+<%= link_to "Edit Profile", edit_booking_path %> 
+<%= button_to "Confirm", { :controller => "bookings", :action => "confirm_booking",:id=>@booking.id},:method=> :post %>

@@ -1,0 +1,21 @@
+<h1 style="text-align: center; "><b> Edit Information</b></h1>
+
+ 
+<%=form_for @user do |f|%>
+    
+	<%=f.label :name %> <br/>
+	<%=f.text_field :name%><br/><br/>
+
+
+	<%=f.label :phonenumber %> <br/>
+	<%=f.text_field :phonenumber%><br/><br/>
+		
+
+	<%=f.label :image %> <br/>
+	<%= f.file_field :image %><br/><br/>
+	
+	<br><br>
+
+	<%=f.submit %>
+
+	<%end%>

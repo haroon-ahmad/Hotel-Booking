@@ -1,0 +1,66 @@
+<script>
+function validateForm() {
+	        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var x=document.getElementById("user_name").value;
+    if (x == null || x == "") {
+        alert("  Name must be filled out");
+        return false;
+    }
+    var x=document.getElementById("user_phonenumber").value;
+    if (x == null || x == "") {
+        alert("Phone Number must be filled out");
+        return false;
+    }
+    var x=document.getElementById("user_email").value;
+    if (x == null || x == "") {
+        alert("Email must be filled out");
+        return false;
+
+
+    }
+    if(!re.test(x))
+    {
+    	return false;	
+    }
+    var x=document.getElementById("user_password").value;
+    if (x == null || x == "") {
+        alert("Password must be filled out");
+        return false;
+    }
+    var y=document.getElementById("user_password_confirmation").value;
+    if (y == null || y== "" || y!=x) {
+        alert("Passwords must be equal");
+        return false;
+    }
+}
+</script>
+<h1 style="text-align: center; "><b> SIGNUP</b></h1>
+
+ 
+<%=form_for @user , :html => { :onsubmit => "validateForm()" } do |f|%>
+    
+	<%=f.label :name %> <br/>
+	<%=f.text_field :name%><br/><br/>
+
+
+	<%=f.label :phonenumber %> <br/>
+	<%=f.text_field :phonenumber%><br/><br/>
+		
+
+	<%=f.label :email %> <br/>
+	<%=f.email_field :email%><br/><br/>
+
+	<%=f.label :password %> <br/>
+	<%=f.password_field :password %><br/><br/>
+
+	<%=f.label :password_confirmation %> <br/>
+	<%=f.password_field :password_confirmation%><br/><br/>
+
+	<%=f.label :image %> <br/>
+	<%= f.file_field :image %><br/><br/>
+	
+	<br><br>
+
+	<%=f.submit %>
+
+	<%end%>
